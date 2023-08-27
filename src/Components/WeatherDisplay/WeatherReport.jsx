@@ -11,20 +11,18 @@ import { styled } from "styled-components";
 
 const WeatherReport = () => {
   let weatherData = useSelector((store) => store.weatherReducer.data);
-
-  let dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch({ type: InitialKelvinFromApi, payload: weatherData.main.temp });
-    dispatch({ type: Default_Setting, payload: "cal" });
-  }, []);
-
   let data = useSelector((store) => {
     return {
       default_setting: store.toggleReducer.default_setting,
       initialKelvinTemp: store.toggleReducer.initialKelvinTemp,
     };
   }, shallowEqual);
+  let dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: InitialKelvinFromApi, payload: weatherData.main.temp });
+    // dispatch({ type: Default_Setting, payload: "cal" });
+  }, [weatherData]);
 
   function ToCalsious(kelvinTemp) {
     let Celsius = kelvinTemp - 273.15;

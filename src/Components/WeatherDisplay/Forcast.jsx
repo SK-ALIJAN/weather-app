@@ -1,20 +1,21 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchWeatherData } from "../../Redux/action";
+
 
 const Forcast = () => {
-  let default_location = useSelector(
-    (store) => store.toggleReducer.default_location
-  );
-  let dispatch = useDispatch();
+  // let default_location = useSelector(
+  //   (store) => store.toggleReducer.default_location
+  // );
+  // let dispatch = useDispatch();
 
-//   useEffect(() => {
-//     dispatch(fetchWeatherData(default_location));
-//   }, [default_location]);
+  // useEffect(() => {
+  //   dispatch(fetchWeatherForcastData());
+  // }, []);
 
   let forcastData = useSelector((store) => store.forcastReducer.data);
 
-//   console.log(forcastData);
+  console.log(forcastData.list);
+
   return (
     <div>
       <header>

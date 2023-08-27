@@ -49,7 +49,7 @@ const Search = (props) => {
         {errorshow ? <p>Please enter city name</p> : ""}
       </div>
 
-      <button onClick={handleSubmit}>Track Location</button>
+      <button onClick={handleSubmit}>Save Location!</button>
     </DIV>
   );
 };
