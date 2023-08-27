@@ -1,7 +1,9 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+body {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  background-color: #D3D3D3;
+}

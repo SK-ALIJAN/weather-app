@@ -2,7 +2,7 @@ import { getCityError, getCityRequest, getCitySuccess } from "../actionType";
 
 const InitialValue = {
   isLoading: false,
-  data: {},
+  data: [],
   isError: false,
   ErrorMessage: "",
 };

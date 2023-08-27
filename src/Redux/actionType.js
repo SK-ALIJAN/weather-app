@@ -9,3 +9,9 @@ export const getForcastError = "getForcastError";
 export const getCityRequest = "getCityRequest";
 export const getCitySuccess = "getCitySuccess";
 export const getCityError = "getCityError";
+
+export const ToggleMode = "ToggleMode";
+
+export const Default_Location = "Default_Location";
+export const Default_Setting = "Default_Setting";
+export const InitialKelvinFromApi = "InitialKelvinFromApi";
