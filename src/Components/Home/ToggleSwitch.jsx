@@ -1,9 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { ToggleMode } from "../../Redux/actionType";
 
 const ToggleSwitch = () => {
   let dispatch = useDispatch();
+  const currentMode = useSelector((store) => store.toggleReducer.mode);
 
   let handleChange = () => {
     dispatch({ type: ToggleMode });
@@ -12,7 +13,7 @@ const ToggleSwitch = () => {
   return (
     <SwitchContainer>
       <input type="checkbox" onChange={handleChange} />
-      <Slider />
+      <Slider mode={currentMode} />
     </SwitchContainer>
   );
 };

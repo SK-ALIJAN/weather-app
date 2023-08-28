@@ -54,8 +54,8 @@ const Support = () => {
 
         <div id="repo">
           <p className="text">
-            <BsFillHandThumbsUpFill className="icon"/> Show Your Support for Further
-            Development!
+            <BsFillHandThumbsUpFill className="icon" /> Show Your Support for
+            Further Development!
           </p>
           <p>
             You have the ability to access the source codes of this undertaking,
@@ -123,15 +123,15 @@ let WRAPPER = styled.div`
     width: 100%;
     cursor: pointer;
   }
-  #repo p{
-  display:flex;
-  align-items:center;
+  #repo p {
+    display: flex;
+    align-items: center;
   }
-  .text{
-  font-weight:600
+  .text {
+    font-weight: 600;
   }
-  .icon{
-  margin-right:20px;
-  color:teal;
+  .icon {
+    margin-right: 20px;
+    color: teal;
   }
 `;

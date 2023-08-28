@@ -53,6 +53,9 @@ const WeatherReport = () => {
   return (
     <DIV>
       <header id="weatherBody">
+       <div>
+       <img src={weatherIcon(`${weatherData.weather[0].icon}.png`)} alt="" />
+       </div>
         <div>
           <h1 id="temp">
             {data.default_setting == "kel"
@@ -69,7 +72,6 @@ const WeatherReport = () => {
             {weatherData.name}, {weatherData.sys.country}
           </h1>
           <p>{farmattedDate()}</p>
-          <img src={weatherIcon(`${weatherData.weather[0].icon}.png`)} alt="" />
         </div>
       </header>
 
