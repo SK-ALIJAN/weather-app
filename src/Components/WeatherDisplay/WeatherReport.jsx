@@ -7,6 +7,8 @@ import { CiTempHigh } from "react-icons/ci";
 import { BiWind } from "react-icons/bi";
 import { BsClouds } from "react-icons/bs";
 import { WiHumidity } from "react-icons/wi";
+import { TiWeatherSnow } from "react-icons/ti";
+import { TiWeatherWindy } from "react-icons/ti";
 import { styled } from "styled-components";
 
 const WeatherReport = () => {
@@ -24,6 +26,7 @@ const WeatherReport = () => {
     // dispatch({ type: Default_Setting, payload: "cal" });
   }, [weatherData]);
 
+  console.log(weatherData);
   function ToCalsious(kelvinTemp) {
     let Celsius = kelvinTemp - 273.15;
     return (
@@ -71,7 +74,7 @@ const WeatherReport = () => {
       </header>
 
       <header id="air_condition">
-        <h1>AIR CONDITIONS</h1>
+        {/* <h1>AIR CONDITIONS</h1> */}
         <section>
           <div>
             <p>
@@ -100,13 +103,30 @@ const WeatherReport = () => {
             </p>
             <p>{weatherData.clouds.all}%</p>
           </div>
+        </section>
 
+        <section>
           <div>
             <p>
               <WiHumidity className="icon" /> Humidity
             </p>
             <p>{weatherData.main.humidity}%</p>
           </div>
+
+          <div>
+            <p>
+              <TiWeatherSnow className="icon" /> Description
+            </p>
+            <p>{weatherData.weather[0].description}</p>
+          </div>
+
+             <div>
+            <p>
+              <TiWeatherWindy className="icon" /> Pressure
+            </p>
+            <p>{weatherData.main.pressure} hPa</p>
+          </div>
+
         </section>
       </header>
     </DIV>
