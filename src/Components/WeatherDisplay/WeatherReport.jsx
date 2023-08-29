@@ -2,7 +2,7 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { farmattedDate } from "../../utilities/DayMonth";
 import { weatherIcon } from "../../utilities/IconUtils";
 import { useEffect } from "react";
-import { Default_Setting, InitialKelvinFromApi } from "../../Redux/actionType";
+import {InitialKelvinFromApi } from "../../Redux/actionType";
 import { CiTempHigh } from "react-icons/ci";
 import { BiWind } from "react-icons/bi";
 import { BsClouds } from "react-icons/bs";
@@ -23,10 +23,9 @@ const WeatherReport = () => {
 
   useEffect(() => {
     dispatch({ type: InitialKelvinFromApi, payload: weatherData.main.temp });
-    // dispatch({ type: Default_Setting, payload: "cal" });
   }, [weatherData]);
 
-  console.log(weatherData);
+
   function ToCalsious(kelvinTemp) {
     let Celsius = kelvinTemp - 273.15;
     return (
@@ -53,9 +52,6 @@ const WeatherReport = () => {
   return (
     <DIV>
       <header id="weatherBody">
-       <div>
-       <img src={weatherIcon(`${weatherData.weather[0].icon}.png`)} alt="" />
-       </div>
         <div>
           <h1 id="temp">
             {data.default_setting == "kel"
@@ -72,11 +68,18 @@ const WeatherReport = () => {
             {weatherData.name}, {weatherData.sys.country}
           </h1>
           <p>{farmattedDate()}</p>
+          <div>
+            <img
+              src={weatherIcon(`${weatherData.weather[0].icon}.png`)}
+              alt=""
+              id="weatherIcon"
+            />
+          </div>
         </div>
       </header>
 
       <header id="air_condition">
-        {/* <h1>AIR CONDITIONS</h1> */}
+        <h2>AIR CONDITIONS</h2>
         <section>
           <div>
             <p>
@@ -122,13 +125,12 @@ const WeatherReport = () => {
             <p>{weatherData.weather[0].description}</p>
           </div>
 
-             <div>
+          <div>
             <p>
               <TiWeatherWindy className="icon" /> Pressure
             </p>
             <p>{weatherData.main.pressure} hPa</p>
           </div>
-
         </section>
       </header>
     </DIV>
@@ -156,7 +158,7 @@ let DIV = styled.div`
     margin-top: 30px;
   }
 
-  #air_condition h1 {
+  #air_condition h2 {
     text-align: center;
   }
   #air_condition section {
@@ -180,5 +182,8 @@ let DIV = styled.div`
   }
   .icon {
     margin-right: 5px;
+  }
+  #weatherIcon {
+    width: 10rem;
   }
 `;

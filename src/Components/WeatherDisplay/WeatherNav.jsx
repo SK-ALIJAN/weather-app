@@ -72,6 +72,7 @@ export default WeatherNav;
 let DIV = styled.div`
   position: fixed;
   bottom: 0px;
+  z-index:1;
   display: flex;
   justify-content: space-around;
   padding: 5px 0px;
