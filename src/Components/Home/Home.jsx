@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { Default_Location } from "../../Redux/actionType";
 import { useNavigate } from "react-router-dom";
 
+// to get the date
 function getFormattedDate() {
   const months = [
     "Jan",
@@ -156,6 +157,7 @@ const NAV = styled.nav`
     #date {
       font-size: 0.5rem;
     }
+    padding-top: 15px;
   }
 
   @media screen and (max-width: 400px) {
@@ -268,5 +270,10 @@ let ModalWrapper = styled.div`
 `;
 
 let DIV = styled.div`
-  padding-bottom: 100px;
+  @media screen and (max-width: 900px) {
+    height: 100vh;
+  }
+  @media screen and (max-width: 600px) {
+    height: 120vh;
+  }
 `;

@@ -136,11 +136,12 @@ let WRAPPER = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    #my_details,#repo {
+    #my_details,
+    #repo {
       font-size: 0.9rem;
     }
-      .icon{
-      font-size:4rem;
-      }
+    .icon {
+      font-size: 4rem;
+    }
   }
 `;

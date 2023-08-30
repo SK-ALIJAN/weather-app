@@ -9,7 +9,9 @@ import {
   getWeatherRequest,
   getWeatherSuccess,
 } from "./actionType";
+
 import axios from "axios";
+
 const GEO_API_URL = "https://wft-geo-db.p.rapidapi.com/v1/geo";
 
 const WEATHER_API_URL = "https://api.openweathermap.org/data/2.5";
@@ -22,12 +24,13 @@ const GEO_API_OPTIONS = {
     "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com",
   },
 };
+
 const forForcast = {
   lat: "",
   lon: "",
 };
 
-export const fetchWeatherData = (input) => (dispatch) => {
+export const fetchWeatherData = (input) => async (dispatch) => {
   dispatch({ type: getWeatherRequest });
 
   axios
@@ -45,7 +48,7 @@ export const fetchWeatherData = (input) => (dispatch) => {
     });
 };
 
-export const fetchWeatherForcastData = (dispatch, forForcast) => {
+export const fetchWeatherForcastData = async (dispatch, forForcast) => {
   dispatch({ type: getForcastRequest });
 
   axios

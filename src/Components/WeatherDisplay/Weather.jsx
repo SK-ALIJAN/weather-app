@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import WeatherNav from "./WeatherNav";
 import WeatherReport from "./WeatherReport";
 import Forcast from "./Forcast";

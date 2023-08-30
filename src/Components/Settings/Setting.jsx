@@ -1,14 +1,13 @@
-import  { useState } from "react";
+import { useState } from "react";
 import WeatherNav from "../WeatherDisplay/WeatherNav";
 import { AiOutlineLeftCircle } from "react-icons/ai";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { Default_Location, Default_Setting } from "../../Redux/actionType";
 
 const Setting = () => {
   let Navigate = useNavigate();
- 
 
   let defualt_location = useSelector(
     (store) => store.toggleReducer.default_location

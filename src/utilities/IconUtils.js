@@ -46,7 +46,5 @@ export function weatherIcon(imageName) {
   if (iconModule) {
     return iconModule;
   }
-
-  // Handle case where image is not found
   return null;
 }

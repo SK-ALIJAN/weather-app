@@ -4,6 +4,7 @@ import { fetchWeatherData } from "../../Redux/action";
 import { styled } from "styled-components";
 import { Default_Location } from "../../Redux/actionType";
 import { MdOutlineCancel } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Search = (props) => {
   let Default_location = useSelector(
@@ -12,6 +13,7 @@ const Search = (props) => {
   let [searchValue, setSearchValue] = useState("");
   let [errorshow, setErrorShow] = useState(false);
   let dispatch = useDispatch();
+  let Navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchWeatherData(Default_location));
@@ -26,6 +28,9 @@ const Search = (props) => {
       dispatch({ type: Default_Location, payload: searchValue });
       dispatch(fetchWeatherData(searchValue));
       props.SearchBarHide();
+      setTimeout(() => {
+        Navigate("/weather");
+      }, 1000);
     } else {
       setErrorShow(true);
     }

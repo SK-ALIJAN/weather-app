@@ -5,14 +5,16 @@ import { BiWind } from "react-icons/bi";
 import { BsClouds } from "react-icons/bs";
 import { WiHumidity } from "react-icons/wi";
 import { styled } from "styled-components";
+import { ToCalsious, ToFarenhide, ToKelvin } from "../../utilities/TempChanger";
 
 const Forcast = () => {
   let forcastData = useSelector((store) => store.forcastReducer.data);
+  let today_forcast = [];
+  const Weekly_forcast = [];
+
   let default_setting = useSelector(
     (store) => store.toggleReducer.default_setting
   );
-
-  // console.log(forcastData.list);
 
   // ........today date..............
 
@@ -22,23 +24,26 @@ const Forcast = () => {
   const day = String(currentDate.getDate()).padStart(2, "0");
   const todays_Date = `${year}-${month}-${day}`;
 
-  // ............................
+  // ...........getting today forcast.............
 
-  const today_forcast = forcastData.list.filter((ele) => {
-    let date = ele.dt_txt.split(" ");
-    return todays_Date == date[0];
-  });
+  if ((Object.keys(forcastData).length === 0) == false) {
+    const forcast = forcastData.list.filter((ele) => {
+      let date = ele.dt_txt.split(" ");
+      return todays_Date == date[0];
+    });
+    today_forcast = forcast;
+  }
 
-  // ............................
+  // ............Weekly forcast................
 
-  const Weekly_forcast = [];
+  if ((Object.keys(forcastData).length === 0) == false) {
+    for (let i = 1; i < forcastData.list.length; i++) {
+      let today = forcastData.list[i - 1].dt_txt.split(" ")[0];
+      let tommarow = forcastData.list[i].dt_txt.split(" ")[0];
 
-  for (let i = 1; i < forcastData.list.length; i++) {
-    let today = forcastData.list[i - 1].dt_txt.split(" ")[0];
-    let tommarow = forcastData.list[i].dt_txt.split(" ")[0];
-
-    if (today !== tommarow) {
-      Weekly_forcast.push(forcastData.list[i]);
+      if (today !== tommarow) {
+        Weekly_forcast.push(forcastData.list[i]);
+      }
     }
   }
 
@@ -46,28 +51,6 @@ const Forcast = () => {
     let time = str.trim().split(" ")[1];
     let actualTime = time.trim().split(":");
     return `${actualTime[0]}:${actualTime[1]}`;
-  }
-
-  function ToCalsious(kelvinTemp) {
-    let Celsius = kelvinTemp - 273.15;
-    return (
-      <span>
-        {`${Math.ceil(Celsius)}`} <sup>°</sup>C
-      </span>
-    );
-  }
-
-  function ToFarenhide(kelvinTemp) {
-    let Farenhide = ((kelvinTemp - 273.15) * 9) / 5 + 32;
-    return (
-      <span>
-        {`${Math.ceil(Farenhide)}`} <sup>°</sup>F
-      </span>
-    );
-  }
-
-  function ToKelvin(kelvinTemp) {
-    return <span>{kelvinTemp} K</span>;
   }
 
   function dayFinder(celender) {
@@ -89,82 +72,91 @@ const Forcast = () => {
 
   return (
     <DIV>
-      <header className="head">
-        <h2>{"TODAY'S FORECAST"}</h2>
-        <p>{today_forcast.length} available forecasts</p>
-        <WRAPPER>
-          {today_forcast.map((ele) => {
-            return (
-              <div key={ele.dt} className="forcast">
-                <p>{forcastTime(ele.dt_txt)}</p>
+      {Object.keys(forcastData).length === 0 ? (
+        ""
+      ) : (
+        <>
+          <header className="head">
+            <h2>{"TODAY'S FORECAST"}</h2>
+            <p>{today_forcast.length} available forecasts</p>
+            <WRAPPER>
+              {today_forcast.map((ele) => {
+                return (
+                  <div key={ele.dt} className="forcast">
+                    <p>{forcastTime(ele.dt_txt)}</p>
 
-                <div className="sidebyside">
-                  <img src={weatherIcon(`${ele.weather[0].icon}.png`)} alt="" />
-                  <p className="temparature">
-                    {default_setting == "kel"
-                      ? ToKelvin(Math.ceil(ele.main.temp))
-                      : default_setting == "cal"
-                      ? ToCalsious(Math.ceil(ele.main.temp))
-                      : ToFarenhide(Math.ceil(ele.main.temp))}
-                  </p>
-                </div>
+                    <div className="sidebyside">
+                      <img
+                        src={weatherIcon(`${ele.weather[0].icon}.png`)}
+                        alt=""
+                      />
+                      <p className="temparature">
+                        {default_setting == "kel"
+                          ? ToKelvin(Math.ceil(ele.main.temp))
+                          : default_setting == "cal"
+                          ? ToCalsious(Math.ceil(ele.main.temp))
+                          : ToFarenhide(Math.ceil(ele.main.temp))}
+                      </p>
+                    </div>
 
-                <div>
-                  <p>{ele.weather[0].description}</p>
-                </div>
-              </div>
-            );
-          })}
-        </WRAPPER>
-      </header>
-
-      <header id="weekly_forcast">
-        <h2>{"Tomorrow's Weather Forecast"}</h2>
-        <div className="All_forcast">
-          {Weekly_forcast.map((ele) => {
-            return (
-              <div key={ele.dt}>
-                <div>
-                  <p id="dayname">{dayFinder(ele.dt_txt.split(" ")[0])}</p>
-                  <div id="image_state">
-                    <img
-                      src={weatherIcon(`${ele.weather[0].icon}.png`)}
-                      alt=""
-                    />
-                    <p>{ele.weather[0].description}</p>
+                    <div>
+                      <p>{ele.weather[0].description}</p>
+                    </div>
                   </div>
-                </div>
+                );
+              })}
+            </WRAPPER>
+          </header>
 
-                <div className="forIcons">
-                  <p>
-                    <CiTempHigh className="iconss" />
-                    {default_setting == "kel"
-                      ? ToKelvin(Math.ceil(ele.main.temp))
-                      : default_setting == "cal"
-                      ? ToCalsious(Math.ceil(ele.main.temp))
-                      : ToFarenhide(Math.ceil(ele.main.temp))}
-                  </p>
-                  <p>
-                    <BsClouds className="iconss" />
-                    {ele.clouds.all} %
-                  </p>
-                </div>
+          <header id="weekly_forcast">
+            <h2>{"Tomorrow's Weather Forecast"}</h2>
+            <div className="All_forcast">
+              {Weekly_forcast.map((ele) => {
+                return (
+                  <div key={ele.dt}>
+                    <div>
+                      <p id="dayname">{dayFinder(ele.dt_txt.split(" ")[0])}</p>
+                      <div id="image_state">
+                        <img
+                          src={weatherIcon(`${ele.weather[0].icon}.png`)}
+                          alt=""
+                        />
+                        <p>{ele.weather[0].description}</p>
+                      </div>
+                    </div>
 
-                <div className="forIcons">
-                  <p>
-                    <BiWind className="iconss" />
-                    {ele.wind.speed} m/s
-                  </p>
-                  <p>
-                    <WiHumidity className="iconss" />
-                    {ele.main.humidity} %
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </header>
+                    <div className="forIcons">
+                      <p>
+                        <CiTempHigh className="iconss" />
+                        {default_setting == "kel"
+                          ? ToKelvin(Math.ceil(ele.main.temp))
+                          : default_setting == "cal"
+                          ? ToCalsious(Math.ceil(ele.main.temp))
+                          : ToFarenhide(Math.ceil(ele.main.temp))}
+                      </p>
+                      <p>
+                        <BsClouds className="iconss" />
+                        {ele.clouds.all} %
+                      </p>
+                    </div>
+
+                    <div className="forIcons">
+                      <p>
+                        <BiWind className="iconss" />
+                        {ele.wind.speed} m/s
+                      </p>
+                      <p>
+                        <WiHumidity className="iconss" />
+                        {ele.main.humidity} %
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </header>
+        </>
+      )}
     </DIV>
   );
 };
@@ -181,12 +173,8 @@ let DIV = styled.div`
     position: relative;
     bottom: 15px;
   }
-  #weekly_forcast {
-  }
   #weekly_forcast h2 {
     text-align: center;
-  }
-  .All_forcast {
   }
   .All_forcast > div {
     display: flex;
@@ -219,18 +207,22 @@ let DIV = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-   #weekly_forcast p{
-   font-size:0.7rem;
-   }
-     #weekly_forcast h2{
-     font-size:1rem;
-     }
+    #weekly_forcast p {
+      font-size: 0.7rem;
+    }
+    #weekly_forcast h2 {
+      font-size: 1rem;
+    }
   }
 `;
 
 let WRAPPER = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
   .forcast {
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
       rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;

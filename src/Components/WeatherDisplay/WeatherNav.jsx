@@ -79,34 +79,40 @@ let DIV = styled.div`
   background-color: #e5e5e5;
   width: 100%;
   height: 5vh;
+
   div {
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     color: black;
     font-size: small;
   }
+
   div,
   p {
     cursor: pointer;
   }
+
   div:hover {
     color: teal;
   }
+
   .icon {
     margin-right: 5px;
   }
+
   #SearchPopup {
     position: fixed;
     bottom: 10rem;
   }
+
   .toggle button {
     padding: 3px;
     border-radius: 5px;
     border: 0.5px solid grey;
     cursor: pointer;
   }
+
   .button {
     position: relative;
     overflow: hidden;
