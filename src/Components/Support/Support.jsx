@@ -20,7 +20,7 @@ const Support = () => {
               }}
             />
           </p>
-          <h2>Support me</h2>
+          <h2 id="Support_me">Support me</h2>
         </div>
 
         <div className="my_pic">
@@ -142,6 +142,9 @@ let WRAPPER = styled.div`
     }
     .icon {
       font-size: 4rem;
+    }
+    .title p{
+     font-size: 25px !important;
     }
   }
 `;

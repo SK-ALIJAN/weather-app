@@ -264,7 +264,7 @@ let ModalWrapper = styled.div`
   @media screen and (max-width: 450px) {
     .Dialog1,
     .Dialog2 {
-      width: 90%;
+      width: 85%;
     }
   }
 `;

@@ -102,6 +102,7 @@ export default Setting;
 
 let WRAPPER = styled.div`
   padding: 0px 15px;
+  height: 100vh;
   .title {
     display: flex;
     align-items: center;
