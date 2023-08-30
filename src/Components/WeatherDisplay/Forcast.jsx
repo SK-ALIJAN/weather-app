@@ -42,8 +42,6 @@ const Forcast = () => {
     }
   }
 
-
-
   function forcastTime(str) {
     let time = str.trim().split(" ")[1];
     let actualTime = time.trim().split(":");
@@ -219,13 +217,20 @@ let DIV = styled.div`
     margin-right: 10px;
     font-size: 1.5rem;
   }
+
+  @media screen and (max-width: 600px) {
+   #weekly_forcast p{
+   font-size:0.7rem;
+   }
+     #weekly_forcast h2{
+     font-size:1rem;
+     }
+  }
 `;
 
 let WRAPPER = styled.div`
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   .forcast {
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
       rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
@@ -245,5 +250,16 @@ let WRAPPER = styled.div`
   .temparature {
     margin-left: 10px;
     font-weight: 600;
+  }
+  @media screen and (max-width: 600px) {
+    width: 90%;
+    place-content: center;
+    .forcast {
+      width: 80%;
+      padding: 0px 50px;
+    }
+    .forcast img {
+      width: 5rem;
+    }
   }
 `;

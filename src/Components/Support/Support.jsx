@@ -134,4 +134,13 @@ let WRAPPER = styled.div`
     margin-right: 20px;
     color: teal;
   }
+
+  @media screen and (max-width: 600px) {
+    #my_details,#repo {
+      font-size: 0.9rem;
+    }
+      .icon{
+      font-size:4rem;
+      }
+  }
 `;

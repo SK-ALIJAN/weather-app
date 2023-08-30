@@ -2,7 +2,7 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { farmattedDate } from "../../utilities/DayMonth";
 import { weatherIcon } from "../../utilities/IconUtils";
 import { useEffect } from "react";
-import {InitialKelvinFromApi } from "../../Redux/actionType";
+import { InitialKelvinFromApi } from "../../Redux/actionType";
 import { CiTempHigh } from "react-icons/ci";
 import { BiWind } from "react-icons/bi";
 import { BsClouds } from "react-icons/bs";
@@ -24,7 +24,6 @@ const WeatherReport = () => {
   useEffect(() => {
     dispatch({ type: InitialKelvinFromApi, payload: weatherData.main.temp });
   }, [weatherData]);
-
 
   function ToCalsious(kelvinTemp) {
     let Celsius = kelvinTemp - 273.15;
@@ -52,7 +51,7 @@ const WeatherReport = () => {
   return (
     <DIV>
       <header id="weatherBody">
-        <div>
+        <div className="temp_condition">
           <h1 id="temp">
             {data.default_setting == "kel"
               ? ToKelvin(Math.ceil(data.initialKelvinTemp))
@@ -185,5 +184,20 @@ let DIV = styled.div`
   }
   #weatherIcon {
     width: 10rem;
+  }
+  @media screen and (max-width: 600px) {
+    #weatherBody {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+    .temp_condition{
+    display:flex;
+    align-items:center;
+    width:90%;
+    justify-content:space-around;
+    }
+      #air_condition p{
+      font-size:0.6rem
+      }
   }
 `;

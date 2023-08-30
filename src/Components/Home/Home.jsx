@@ -68,7 +68,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <DIV>
       <NAV>
         <p id="title"> Climate View</p>
         <p id="date">{date}</p>
@@ -126,7 +126,7 @@ const Home = () => {
           ""
         )}
       </ModalWrapper>
-    </>
+    </DIV>
   );
 };
 
@@ -147,6 +147,24 @@ const NAV = styled.nav`
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 2px;
+  }
+
+  @media screen and (max-width: 600px) {
+    #title {
+      font-size: 0.6rem;
+    }
+    #date {
+      font-size: 0.5rem;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    #title {
+      font-size: 0.5rem;
+    }
+    #date {
+      font-size: 0.3rem;
+    }
   }
 `;
 
@@ -188,6 +206,10 @@ let WRAPPER = styled.div`
       width: 90%;
       margin-bottom: 20px;
     }
+  }
+
+  @media screen and (max-width: 600px) {
+    margin-top: 100px;
   }
 `;
 
@@ -237,4 +259,14 @@ let ModalWrapper = styled.div`
     position: relative;
     bottom: 10px;
   }
+  @media screen and (max-width: 450px) {
+    .Dialog1,
+    .Dialog2 {
+      width: 90%;
+    }
+  }
+`;
+
+let DIV = styled.div`
+  padding-bottom: 100px;
 `;

@@ -72,7 +72,7 @@ export default WeatherNav;
 let DIV = styled.div`
   position: fixed;
   bottom: 0px;
-  z-index:1;
+  z-index: 1;
   display: flex;
   justify-content: space-around;
   padding: 5px 0px;
@@ -144,5 +144,12 @@ let DIV = styled.div`
       rgba(99, 88, 238, 1) 94.3%
     );
     transition: all 0.475s;
+  }
+
+  @media screen and (max-width: 500px) {
+    p,
+    button {
+      font-size: 0.5rem;
+    }
   }
 `;

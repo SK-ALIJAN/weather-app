@@ -24,6 +24,15 @@ const SwitchContainer = styled.label`
   display: inline-block;
   width: 3.5em;
   height: 2em;
+
+  @media screen and (max-width: 600px) {
+    width: 3rem;
+    height: 1.7rem;
+  }
+
+     @media screen and (max-width: 400px) {
+    
+  }
 `;
 
 const Slider = styled.span`
@@ -58,6 +67,13 @@ const Slider = styled.span`
   ${SwitchContainer} input:checked + &::before {
     transform: translateX(100%);
     box-shadow: inset 15px -4px 0px 15px #fff000;
+  }
+
+  @media screen and (max-width: 600px) {
+    &:before {
+      height: 1.4em;
+      width: 1.4em;
+    }
   }
 `;
 

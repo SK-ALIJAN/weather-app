@@ -1,4 +1,3 @@
-import React from "react";
 import NotFounds from "../../assets/NotFound.png";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
