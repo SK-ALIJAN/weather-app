@@ -7,7 +7,7 @@ Explore the world's weather with real-time Weather app, See current weather and 
 
 ****************************************************************************************
 Deployed link:-
-# (alijan-weather-app.vercel.app/)
+# (https://alijan-weather-app.vercel.app/)
 
 It is individual project made in 5 days 
 
