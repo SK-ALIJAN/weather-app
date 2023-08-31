@@ -35,11 +35,5 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "gh-pages": "^6.0.0",
     "vite": "^4.4.5"
-  },
-  "vercel": {
-    "build": {
-      "src": "build",
-      "output": "dist"
-    }
   }
 }
