@@ -29,6 +29,7 @@ It is individual project made in 5 days
 + light/dark mode
 + User friendly settings
 + Search functionality
++ Responsiveness
 
 ****************************************************************************************
 ## Preview of Weather app <br>
