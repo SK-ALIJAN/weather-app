@@ -1,54 +1,73 @@
-## Weather app
+## Mytrip
 <br>
-Explore the world's weather with real-time Weather app, See current weather and upcoming forecasts for thousands of cities worldwide. Whether you're traveling, planning, or just curious, my app helps you understand the weather easily. <br><br>
-<p align="center"><img src="https://github.com/SK-ALIJAN/weather-app/assets/106768235/758d078f-b2a8-470c-b6aa-cbe58f630283"></p> 
+Elevate your travel adventures with Myrip, where flight and hotel reservations are made simple, allowing you to focus on creating unforgettable memories.Experience the convenience of Myrip's user-friendly interface and unlock a world of endless possibilities for your dream vacation.  <br><br>
+<p align="center"><img src="https://github.com/SK-ALIJAN/Mytrip/assets/106768235/b328bdaf-2853-48ee-b95a-e2b58325e726"></p> 
 
 
 
 ****************************************************************************************
 Deployed link:-
-# (https://alijan-weather-app.vercel.app/)
+# (https://my-trip-wine.vercel.app)
 
-It is individual project made in 5 days 
+It is individual project made in 10 days 
 
 ****************************************************************************************
 
 # Tech-Stack Used:-
 1. React
-2. Redux
-3. ApplyMiddleware
-4. Css (Styled-components)
-5. weather api
-6. LocalStorage
+2. Css
+3. Json Sever
+4. LocalStorage
 
 ******************************************************************************************
 
 # Features 
-+ Realtime weather update
-+ Weather forcast 
-+ light/dark mode
-+ User friendly settings
++ Authentication
++ Signin/Signup Functionality
++ Flight Booking
++ Hotel Booking
 + Search functionality
-+ Responsiveness
++ Dynamic page
++ user can see booking type
++ Add to Cart functionality
++ Payment functionality
+
 
 ****************************************************************************************
-## Preview of Weather app <br>
+## Preview of Mytrip <br>
 ****************************************************************************************
-## Home Page
-<p align="center"><img src="https://github.com/SK-ALIJAN/weather-app/assets/106768235/f09f4d89-4d39-4c40-9b96-c756a1904e33"></p> <br>
+## Authentication Page
+<p align="center"><img src="https://github.com/SK-ALIJAN/Mytrip/assets/106768235/01062312-45a2-4690-ab9a-0bc9fd009b73"></p> <br>
 
 ****************************************************************************************
-## Dark and Light mode
-<p align="center"><img src="https://github.com/SK-ALIJAN/weather-app/assets/106768235/97d912a5-58fa-44a4-8238-4cbfcddeb8e7"></p> <br>
+## Flight Booking Page
+<p align="center"><img src="https://github.com/SK-ALIJAN/Mytrip/assets/106768235/41c9cd5e-96c8-4a99-a3fc-34bd9c40d19c"></p> <br>
 
 ****************************************************************************************
-## Realtime weather update page
-<p align="center"><img src="https://github.com/SK-ALIJAN/weather-app/assets/106768235/81c9c4a4-5ddf-4f3b-942c-e7ae93d3a760"></p> <br>
-<p align="center"><img src="https://github.com/SK-ALIJAN/weather-app/assets/106768235/6b48e5c8-dc88-48b1-b0ad-dc944994bc7d"></p> <br>
+## Flight Show
+<p align="center"><img src="https://github.com/SK-ALIJAN/Mytrip/assets/106768235/e17f9dc3-f17c-4b13-8487-6aebe64b1a76"></p> <br>
+<p align="center"><img src="https://github.com/SK-ALIJAN/Mytrip/assets/106768235/bee1e6de-964c-42a5-a485-71465c1a1a50"></p> <br>
 
 ****************************************************************************************
-## Settings page
-<p align="center"><img src="https://github.com/SK-ALIJAN/weather-app/assets/106768235/9f82470e-8830-479e-a6e6-6ef797e3fca9"></p> <br>
+## Hotel Booking page
+<p align="center"><img src="https://github.com/SK-ALIJAN/Mytrip/assets/106768235/a4f88720-c74b-4f01-9b7e-075d0bdd765f"></p> <br>
+
+****************************************************************************************
+## Hotel View
+<p align="center"><img src="https://github.com/SK-ALIJAN/Mytrip/assets/106768235/8ba389e5-afa1-428d-a9c9-00a13cba1c4d"></p> <br>
+
+****************************************************************************************
+## Payment page
+<p align="center"><img src="https://github.com/SK-ALIJAN/Mytrip/assets/106768235/a1be993b-6fde-4420-85c6-e48b60c36a79"></p> <br>
+<p align="center"><img src="https://github.com/SK-ALIJAN/Mytrip/assets/106768235/5f0e7468-f651-4afd-ab3b-626946067e8f"></p> <br>
+
+****************************************************************************************
+## User Profile page
+<p align="center"><img src="https://github.com/SK-ALIJAN/Mytrip/assets/106768235/75b0b4bb-55fb-477f-973d-5db811b80f9d"></p> <br>
+
+****************************************************************************************
+## Not Found page
+<p align="center"><img src="https://github.com/SK-ALIJAN/Mytrip/assets/106768235/c4aaea2a-d0a1-46d0-ae34-aafdf2461b04"></p> <br>
 
 ****************************************************************************************
 

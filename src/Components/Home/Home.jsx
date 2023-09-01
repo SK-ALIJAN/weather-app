@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Default_Location } from "../../Redux/actionType";
 import { useNavigate } from "react-router-dom";
+import { BsGithub } from "react-icons/bs";
+import logo from "../../assets/logo.png";
 
 // to get the date
 function getFormattedDate() {
@@ -71,8 +73,13 @@ const Home = () => {
   return (
     <DIV>
       <NAV>
-        <p id="title"> Climate View</p>
-        <p id="date">{date}</p>
+        <img src={logo} alt="" id="title" />
+        <p id="date">
+          {date}{" "}
+          <a href="https://github.com/SK-ALIJAN">
+            <BsGithub />
+          </a>
+        </p>
         <ToggleSwitch />
       </NAV>
 
@@ -139,20 +146,34 @@ const NAV = styled.nav`
   justify-content: space-between;
   padding: 0px 30px;
   #title {
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
+    width: 10rem;
+    height: 4rem;
+    object-fit:cover;
   }
   #date {
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 2px;
+    display: flex;
+    align-items: center;
   }
-
+  #date a {
+    color: teal;
+    margin-left: 10px;
+    position: relative;
+    top: 1px;
+    font-size: 0.9rem;
+  }
+  @media screen and (max-width: 900px) {
+    #title {
+      width:8rem;
+      height:2rem;
+    }
+}
   @media screen and (max-width: 600px) {
     #title {
-      font-size: 0.6rem;
+      width:5rem;
+      height:2rem;
     }
     #date {
       font-size: 0.5rem;
@@ -162,10 +183,11 @@ const NAV = styled.nav`
 
   @media screen and (max-width: 400px) {
     #title {
-      font-size: 0.5rem;
+    margin-right:5px;
     }
     #date {
       font-size: 0.3rem;
+        margin-right:5px;
     }
   }
 `;
@@ -218,7 +240,7 @@ let WRAPPER = styled.div`
 let ModalWrapper = styled.div`
   .Dialog1,
   .Dialog2 {
-    background-color: white;
+    background-color:#D3D3D3;
     padding: 10px;
     position: fixed;
     top: 50%;

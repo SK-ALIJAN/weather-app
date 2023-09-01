@@ -124,6 +124,7 @@ let WRAPPER = styled.div`
     outline: 0;
     border: 0;
     border-radius: 7px;
+    border:1px solid #D3D3D3;
   }
   .location button,
   .unit button {
@@ -145,6 +146,7 @@ let WRAPPER = styled.div`
     border: 0;
     border-radius: 7px;
     cursor: pointer;
+        border:1px solid #D3D3D3;
   }
 
   .unit button {

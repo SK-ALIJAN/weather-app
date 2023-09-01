@@ -15,6 +15,6 @@ function App() {
 export default App;
 
 let DIV = styled.div`
-  background-color: ${({ mode }) => (mode == "false" ? "#171717" : "#D3D3D3")};
-  color: ${({ mode }) => (mode == "false" ? "#D3D3D3" : "#171717")};
+  background-color: ${({ mode }) => (mode == "false" ? "#171717" : "#FFFFFF")};
+  color: ${({ mode }) => (mode == "false" ? "#FFFFFF" : "#171717")};
 `;
