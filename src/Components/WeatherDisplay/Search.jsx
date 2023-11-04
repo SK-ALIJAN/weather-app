@@ -36,6 +36,29 @@ const Search = (props) => {
     }
   };
 
+  const LocationNavigator = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        let { latitude, longitude } = position.coords;
+        try {
+          const response = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+          );
+          if (!response.ok) {
+            throw new Error("Failed to fetch data for current location");
+          }
+          const data = await response.json();
+          dispatch(fetchWeatherData(data.address.postcode));
+          props.SearchBarHide();
+        } catch (err) {
+          console.error(err);
+        }
+      });
+    } else {
+      alert("your browser does not support location");
+    }
+  };
+
   return (
     <DIV errorShow={errorshow.toString()}>
       <MdOutlineCancel
@@ -55,6 +78,11 @@ const Search = (props) => {
       </div>
 
       <button onClick={handleSubmit}>Save Location!</button>
+
+      <p className="or">OR</p>
+      <button className="current_location" onClick={LocationNavigator}>
+        Use current Location
+      </button>
     </DIV>
   );
 };
@@ -121,5 +149,12 @@ let DIV = styled.div`
   }
   #crossIcon:hover {
     color: #0a0a0a90;
+  }
+  .or {
+    text-align: center;
+    margin-top: 40px;
+  }
+  .current_location {
+    width: 100%;
   }
 `;

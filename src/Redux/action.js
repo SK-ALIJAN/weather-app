@@ -78,3 +78,5 @@ export const fetchCities = (input) => (dispatch) => {
       dispatch({ type: getCityError, payload: error.message });
     });
 };
+
+
