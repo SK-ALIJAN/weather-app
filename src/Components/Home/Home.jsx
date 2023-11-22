@@ -101,16 +101,18 @@ const Home = () => {
       <ModalWrapper>
         {show.dialog1 ? (
           <div className="Dialog1">
-            <h3>Default Location</h3>
-            <input
-              type="text"
-              placeholder="Enter location"
-              onChange={(e) => {
-                setText(e.target.value);
-              }}
-              value={text}
-            />
-            <button onClick={handleSave}>Save Locaton</button>
+            <div>
+              <h3>Default Location</h3>
+              <input
+                type="text"
+                placeholder="Enter location"
+                onChange={(e) => {
+                  setText(e.target.value);
+                }}
+                value={text}
+              />
+              <button onClick={handleSave}>Save Locaton</button>
+            </div>
           </div>
         ) : (
           ""
@@ -118,17 +120,19 @@ const Home = () => {
 
         {show.dialog2 ? (
           <div className="Dialog2">
-            <h3>Invalid Location!</h3>
-            <p>Please enter a valid location</p>
-            <button
-              onClick={() => {
-                setShow((prev) => {
-                  return { ...prev, dialog2: false };
-                });
-              }}
-            >
-              OK
-            </button>
+            <div>
+              <h3>Invalid Location!</h3>
+              <p>Please enter a valid location</p>
+              <button
+                onClick={() => {
+                  setShow((prev) => {
+                    return { ...prev, dialog2: false };
+                  });
+                }}
+              >
+                OK
+              </button>
+            </div>
           </div>
         ) : (
           ""
@@ -148,7 +152,7 @@ const NAV = styled.nav`
   #title {
     width: 10rem;
     height: 4rem;
-    object-fit:cover;
+    object-fit: cover;
   }
   #date {
     font-size: 0.8rem;
@@ -166,14 +170,14 @@ const NAV = styled.nav`
   }
   @media screen and (max-width: 900px) {
     #title {
-      width:8rem;
-      height:2rem;
+      width: 8rem;
+      height: 2rem;
     }
-}
+  }
   @media screen and (max-width: 600px) {
     #title {
-      width:5rem;
-      height:2rem;
+      width: 5rem;
+      height: 2rem;
     }
     #date {
       font-size: 0.5rem;
@@ -183,11 +187,11 @@ const NAV = styled.nav`
 
   @media screen and (max-width: 400px) {
     #title {
-    margin-right:5px;
+      margin-right: 5px;
     }
     #date {
       font-size: 0.3rem;
-        margin-right:5px;
+      margin-right: 5px;
     }
   }
 `;
@@ -240,7 +244,17 @@ let WRAPPER = styled.div`
 let ModalWrapper = styled.div`
   .Dialog1,
   .Dialog2 {
-    background-color:#D3D3D3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2726269a;
+  }
+
+  .Dialog1 > div,
+  .Dialog2 > div {
+    background-color: #0ba999;
     padding: 10px;
     position: fixed;
     top: 50%;
@@ -251,7 +265,7 @@ let ModalWrapper = styled.div`
     flex-direction: column;
     color: black;
   }
-  .Dialog1 > input {
+  .Dialog1 input {
     height: 2rem;
     outline: 0;
     border: 0.5px solid #6a6767;
@@ -259,8 +273,8 @@ let ModalWrapper = styled.div`
     margin-bottom: 20px;
     padding-left: 10px;
   }
-  .Dialog1 > button,
-  .Dialog2 > button {
+  .Dialog1 button,
+  .Dialog2 button {
     width: max-content;
     display: block;
     margin: auto;
@@ -271,13 +285,13 @@ let ModalWrapper = styled.div`
     border-radius: 5px;
     cursor: pointer;
   }
-  .Dialog1 > button:hover {
+  .Dialog1 button:hover {
     background-color: #08cebabb;
   }
   h3 {
     text-align: center;
   }
-  .Dialog2 > p {
+  .Dialog2 p {
     text-align: center;
     color: red;
     position: relative;

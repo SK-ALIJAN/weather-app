@@ -61,28 +61,30 @@ const Search = (props) => {
 
   return (
     <DIV errorShow={errorshow.toString()}>
-      <MdOutlineCancel
-        id="crossIcon"
-        onClick={() => {
-          props.SearchBarHide();
-        }}
-      />
-      <div>
-        <label>Search City</label>
-        <input
-          type="text"
-          onChange={handleChange}
-          placeholder="Enter city name "
+      <div className="modalContent">
+        <MdOutlineCancel
+          id="crossIcon"
+          onClick={() => {
+            props.SearchBarHide();
+          }}
         />
-        {errorshow ? <p>Please enter city name</p> : ""}
+        <div className="searchCity">
+          <label>Search City</label>
+          <input
+            type="text"
+            onChange={handleChange}
+            placeholder="Enter city name "
+          />
+          {errorshow ? <p>Please enter city name</p> : ""}
+        </div>
+
+        <button onClick={handleSubmit}>Save Location!</button>
+
+        <p className="or">OR</p>
+        <button className="current_location" onClick={LocationNavigator}>
+          Use current Location
+        </button>
       </div>
-
-      <button onClick={handleSubmit}>Save Location!</button>
-
-      <p className="or">OR</p>
-      <button className="current_location" onClick={LocationNavigator}>
-        Use current Location
-      </button>
     </DIV>
   );
 };
@@ -90,71 +92,83 @@ const Search = (props) => {
 export default Search;
 
 let DIV = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: #08ceb9;
-  height: 45vh;
   position: fixed;
-  bottom: 1px;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 3;
-  border-radius: 6px;
-  padding: 30px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  background-color: #20222267;
 
-  div {
+  .modalContent {
     display: flex;
     flex-direction: column;
-    position: relative;
-    top: 20px;
-  }
-  div label {
-    color: white;
-    margin-bottom: 10px;
-  }
-  div input {
-    height: 2rem;
-    outline: 0;
-    border: 0;
-    outline: ${({ errorShow }) => (errorShow == "true" ? "3px solid red" : 0)};
-    width: 15rem;
-    padding-left: 10px;
-    margin-bottom: ${({ errorShow }) => (errorShow == "true" ? 0 : "50px")};
-    border-radius: 8px;
-  }
-  div > p {
-    font-size: 15px;
-    color: red;
-  }
+    background-color: #08ceb9;
+    height: 45vh;
+    position: fixed;
+    bottom: 1px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 3;
+    border-radius: 6px;
+    padding: 30px;
 
-  button {
-    padding: 10px 30px;
-    background-color: white;
-    border: 0;
-    width: max-content;
-    display: block;
-    align-self: center;
-    border-radius: 8px;
-    cursor: pointer;
-    position: relative;
-    top: 20px;
-  }
-  #crossIcon {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-  }
-  #crossIcon:hover {
-    color: #0a0a0a90;
-  }
-  .or {
-    text-align: center;
-    margin-top: 40px;
-  }
-  .current_location {
-    width: 100%;
+    .searchCity {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      top: 20px;
+    }
+    .searchCity label {
+      color: white;
+      margin-bottom: 10px;
+    }
+    .searchCity input {
+      height: 2rem;
+      outline: 0;
+      border: 0;
+      outline: ${({ errorShow }) =>
+        errorShow == "true" ? "3px solid red" : 0};
+      width: 15rem;
+      padding-left: 10px;
+      margin-bottom: ${({ errorShow }) => (errorShow == "true" ? 0 : "50px")};
+      border-radius: 8px;
+    }
+    div > p {
+      font-size: 15px;
+      color: red;
+    }
+
+    button {
+      padding: 10px 30px;
+      background-color: white;
+      border: 0;
+      width: max-content;
+      display: block;
+      margin: auto;
+      align-self: center;
+      border-radius: 8px;
+      cursor: pointer;
+      position: relative;
+      top: 20px;
+    }
+    #crossIcon {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    #crossIcon:hover {
+      color: #0a0a0a90;
+    }
+    .or {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .current_location {
+      width: 100%;
+    }
   }
 `;
